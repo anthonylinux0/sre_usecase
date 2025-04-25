@@ -1,0 +1,31 @@
+Tasks
+1. Create the EKS Cluster:
+a. Write a Terraform script to provision an EKS cluster with managed node groups,
+including creating a VPC with subnets in multiple availability zones (AZs), and the
+necessary IAM roles and policies.
+b. Test the Cluster: Once the EKS cluster is provisioned, validate the creation by using
+kubectl to access the cluster and deploy a simple test pod (such as Nginx or a basic
+"Hello World" web app).
+2. Implement Canary Deploymentfor Flask Application
+a. Deploy Initial Application Version (v1):Containerize a Flask-based Python web
+application serving a "Hello World" webpage.
+b. Deploy the v1 version of the application to the EKS cluster using a Kubernetes
+Deployment.
+c. Expose the application via a Kubernetes Service and use Istio for ingress routing.
+Copyright © 2025 Accenture. All rights reserved. 
+USE CASE & TASKS 
+Tasks
+d. Create Canary Deployment Strategy: Implement a canary deployment strategy using
+Kubernetes Deployments and Istio's Traffic Management. Route 10% of traffic to the new
+version (v2) of the application and 90% to v1. Monitor application metrics, error rates, and
+logs to validate that v2 performs as expected. Gradually increase traffic to 100% v2 after
+confirming no issues.
+3. Implement Chaos Engineering with AWS FIS:
+a. Identify Single-Point Failure: Identify a potential single-point failure in your EKS setup, such
+as a vulnerable pod or an EC2 instance that could affect your service.
+b. Create Chaos Experiments: Use AWS FIS to create and run the following failure scenarios.
+c. Pod Failure: Randomly terminate 30% of pods in the v1 or v2 deployment.EC2 Instance
+Failure: Randomly stop or terminate a worker node in the EKS node group to simulate the
+failure of a physical machine.
+d. Network Latency: Introduce increased network latency between services (e.g., between
+pods or between services in the cluster) to simulate slow network conditions
